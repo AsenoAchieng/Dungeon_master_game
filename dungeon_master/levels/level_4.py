@@ -21,3 +21,36 @@ def play_level_4(game):
 
     if game.is_corrupted(game):
         print("The Heart Gem is black. Elara's hands begin to change.")
+
+        print()
+    print("The ritual can be broken in one of three ways:")
+    print("1. Break the crystal")
+    print("2. Protect the Heart Gem")
+    print("3. Ask the Envoy for the final truth")
+    print()
+
+    choice = input("> ")
+
+    if choice == "1":
+        game.record_choice("broke_crystal")
+        increase_hope(game, 5)
+        print("Elara strikes the crystal. The dungeon begins to shake...")
+        game.completed_levels.append(4)
+        game.current_level = 5
+        pause("Press Enter to face the Heart of the Dungeon...")
+
+    elif choice == "2":
+        game.record_choice("protected_gem")
+        increase_hope(game, 10)
+        print("Mira shields the gem. For the first time, it shines clearly.")
+        game.completed_levels.append(4)
+        game.current_level = 5
+        pause("Press Enter to face the Heart of the Dungeon...")
+
+    elif choice == "3":
+        game.record_choice("confronted_envoy")
+        print("The Envoy finally speaks plainly.")
+        print("\"I did not create the cycle... only kept it alive.\"")
+        game.flags["envoy_confessed"] = True
+
+        
