@@ -15,3 +15,9 @@ def play_level_4(game):
     print("Mira arrives and holds back a shadow long enough for Elara to pass.")
 
     increase_hope(game, 10)
+
+    if "envoy_confessed" in game.flags:
+        print("The Envoy waits beside the ritual circle.")
+
+    if game.is_corrupted(game):
+        print("The Heart Gem is black. Elara's hands begin to change.")
