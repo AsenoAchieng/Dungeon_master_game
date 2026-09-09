@@ -53,4 +53,10 @@ def play_level_4(game):
         print("\"I did not create the cycle... only kept it alive.\"")
         game.flags["envoy_confessed"] = True
 
-        
+        show_status(game)
+
+    if 4 not in game.completed_levels:
+        game.completed_levels.append(4)
+        game.current_level = 5
+
+    pause("Press Enter to enter the Heart of the Dungeon...")
