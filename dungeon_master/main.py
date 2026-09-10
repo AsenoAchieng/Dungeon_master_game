@@ -6,7 +6,7 @@ from game.ui import choose, clear, pause, show_status, title
 from levels.level_1 import level1
 from levels.level_2 import level2
 
-
+from levels.level_4 import level4
 
 GAME_NAME = "DUNGEON MASTER"
 
@@ -57,7 +57,7 @@ def play_game(game):
         1: level1,
          2: level2,  # not built yet
         # 3: level3,  # not built yet
-        # 4: level4,  # not built yet
+        4: level4,  
         # 5: level5,  # not built yet
     }
 
@@ -104,7 +104,7 @@ from levels.level_2 import level2
 
 GAME_NAME = "DUNGEON MASTER"
 
-git 
+ 
 def banner():
     print("=" * 62)
     print(GAME_NAME.center(62))

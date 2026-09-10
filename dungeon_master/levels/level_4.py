@@ -1,8 +1,8 @@
 from dungeon_master.game.heart_gem import increase_hope, is_corrupted
-from dungeon_master.game.ui import clear, pause, show_status
+from dungeon_master.ui import clear_screen, pause, show_status
 
 def play_level_4(game):
-    clear()
+    clear_screen()
     print("==================================================")
     print("          LEVEL 4 - THE RITUAL CHAMBER            ")
     print("==================================================")
