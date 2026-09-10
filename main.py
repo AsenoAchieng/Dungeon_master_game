@@ -5,9 +5,13 @@ from dungeon_master.game.save_system import load_game, save_game, save_exists
 from dungeon_master.game.ui import choose, clear, pause, show_status, title
 from dungeon_master.levels.level_1 import level1
 from dungeon_master.levels.level_2 import level2
+<<<<<<< HEAD
 from dungeon_master.levels.level_3 import level3
 from dungeon_master.levels.level_4 import level4
 from dungeon_master.levels.level_5 import level5
+=======
+from dungeon_master.levels.level_4 import level4
+>>>>>>> origin/main
 
 GAME_NAME = "DUNGEON MASTER"
 
@@ -32,7 +36,10 @@ def main_menu():
             clear()
             game = GameState()
             play_game(game)
+<<<<<<< HEAD
             
+=======
+>>>>>>> origin/main
         elif choice == 2:
             game = load_game()
             if game is None:
@@ -57,10 +64,17 @@ def main_menu():
 def play_game(game):
     levels = {
         1: level1,
+<<<<<<< HEAD
         2: level2,  # not built yet
         3: level3,  # not built yet
         4: level4,  
         5: level5,  # not built yet
+=======
+         2: level2,  # not built yet
+        # 3: level3,  # not built yet
+        4: level4,  
+        # 5: level5,  # not built yet
+>>>>>>> origin/main
     }
 
     while game.current_level <= 5:
@@ -100,7 +114,11 @@ def settings():
 
 if __name__ == "__main__":
     main_menu()
+<<<<<<< HEAD
 from dungeon_master.levels.level_2 import level2
+=======
+from levels.level_2 import level2
+>>>>>>> origin/main
 
 
 
@@ -151,9 +169,15 @@ def main_menu():
 def play_game(game):
     levels = {
         1: level1,
+<<<<<<< HEAD
+        2: level2,  # not built yet
+        3: level3,  # not built yet
+        4: level4,  # not built yet
+=======
         # 2: level2,  # not built yet
         # 3: level3,  # not built yet
         # 4: level4,  # not built yet
+>>>>>>> origin/main
         # 5: level5,  # not built yet
     }
 
