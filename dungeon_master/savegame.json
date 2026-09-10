@@ -1,6 +1,6 @@
 {
-    "current_level": 2,
-    "heart_gem": 45,
+    "current_level": 3,
+    "heart_gem": 60,
     "inventory": [
         "Old Key",
         "Torn Letter",
@@ -10,10 +10,14 @@
         "accepted_wish": true
     },
     "flags": {
-        "envoy_trusted": true
+        "envoy_trusted": true,
+        "rescued_girl": true,
+        "ally": "girl",
+        "pulled_lever": true
     },
     "completed_levels": [
-        1
+        1,
+        2
     ],
     "discovered_endings": []
 }
