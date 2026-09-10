@@ -100,7 +100,7 @@ def settings():
 
 if __name__ == "__main__":
     main_menu()
-from levels.level_2 import level2
+from dungeon_master.levels.level_2 import level2
 
 
 
