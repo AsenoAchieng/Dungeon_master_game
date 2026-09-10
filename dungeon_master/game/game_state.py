@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 class GameState:
     def __init__(self):
         self.current_level = 1
@@ -11,6 +10,9 @@ class GameState:
         self.flags = {}
         self.completed_levels = []
         self.discovered_endings = []
+        self.curiosity = 0
+        self.courage = 0
+        self.trust = 0
 
     def add_item(self, item):
         if item not in self.inventory:
@@ -25,6 +27,11 @@ class GameState:
     def record_choice(self, name, value=True):
         self.choices[name] = value
 
+    def nudge(self, curiosity=0, courage=0, trust=0):
+        self.curiosity += curiosity
+        self.courage += courage
+        self.trust += trust
+
     def save(self, filename="savegame.json"):
         data = {
             "current_level": self.current_level,
@@ -34,9 +41,13 @@ class GameState:
             "flags": self.flags,
             "completed_levels": self.completed_levels,
             "discovered_endings": self.discovered_endings,
+            "curiosity": self.curiosity,
+            "courage": self.courage,
+            "trust": self.trust,
         }
         Path(filename).write_text(json.dumps(data, indent=4), encoding="utf-8")
 
+    # Implement load function
     @classmethod
     def load(cls, filename="savegame.json"):
         path = Path(filename)
@@ -52,7 +63,11 @@ class GameState:
         game.flags = data.get("flags", {})
         game.completed_levels = data.get("completed_levels", [])
         game.discovered_endings = data.get("discovered_endings", [])
+        game.curiosity = data.get("curiosity", 0)
+        game.courage = data.get("courage", 0)
+        game.trust = data.get("trust", 0)
         return game
+
     def flag(self, name, default=False):
         return self.flags.get(name, default)
 
