@@ -1,4 +1,5 @@
-from utils import clear_screen, pause, show_status, increase_hope
+from ..ui import clear_screen, pause, show_status
+from ..game_state import increase_hope
 
 def play_level_4(game):
     clear_screen()
