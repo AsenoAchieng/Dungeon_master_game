@@ -30,7 +30,9 @@ def play(state):
         slow_print('"...Smart," she mutters, almost to herself.')
         state.set_flag("left_girl", True)
         state.nudge(trust=-2, courage=-1)
- 
+    else:
+        slow_print("\nYou keep your distance and ask her what she knows.")
+        _question_her(state)
 
     pause()
 
