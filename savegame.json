@@ -9,7 +9,7 @@
     "choices": {
         "accepted_wish": true,
         "broke_crystal": true,
-        "sacrificed_self": true
+        "escaped_dungeon": true
     },
     "flags": {
         "envoy_trusted": true,
