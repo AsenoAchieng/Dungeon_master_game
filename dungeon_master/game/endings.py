@@ -1,5 +1,4 @@
-from game.ui import title, pause
-
+from dungeon_master.game.ui import title, pause
 
 ENDING_TEXT = {
     "runaway": (

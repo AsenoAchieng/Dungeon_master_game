@@ -1,12 +1,11 @@
-from game.endings import ending_tracker
-from game.game_state import GameState
-from game.inventory import show_inventory
-from game.save_system import load_game, save_game, save_exists
-from game.ui import choose, clear, pause, show_status, title
-from levels.level_1 import level1
-from levels.level_2 import level2
-
-from levels.level_4 import level4
+from dungeon_master.game.endings import ending_tracker
+from dungeon_master.game.game_state import GameState
+from dungeon_master.game.inventory import show_inventory
+from dungeon_master.game.save_system import load_game, save_game, save_exists
+from dungeon_master.game.ui import choose, clear, pause, show_status, title
+from dungeon_master.levels.level_1 import level1
+from dungeon_master.levels.level_2 import level2
+from dungeon_master.levels.level_4 import level4
 
 GAME_NAME = "DUNGEON MASTER"
 

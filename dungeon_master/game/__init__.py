@@ -1,7 +1,6 @@
-from game.heart_gem import increase_hope, increase_despair
-from game.inventory import add_item
-from game.ui import choose, pause, show_status, title
-
+from dungeon_master.game.heart_gem import increase_hope, increase_despair
+from dungeon_master.game.ui import choose, pause, show_status, title
+from dungeon_master.game.inventory import add_item
 
 def level1(game):
     game.current_level = 1
