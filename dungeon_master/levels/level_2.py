@@ -1,73 +1,82 @@
-from utils import slow_print, menu, banner, pause
+from game.heart_gem import increase_hope, increase_despair
+from game.ui import choose, pause, title
 
 
-def play(state):
-    banner("LEVEL 2 — THE PRISON")
+def level2(game):
+    game.current_level = 2
+    title("LEVEL 2 — THE PRISON")
 
-    slow_print("The corridor opens into a row of cells, doors hanging off rusted hinges.")
-    slow_print("In the last cell, something moves.")
-    slow_print('A girl, thin and pale, presses against the bars.')
-    slow_print('"Don\'t trust the dungeon," she hisses.')
+    print("""
+The corridor opens into a row of cells, doors hanging off rusted hinges.
+In the last cell, something moves.
+A girl, thin and pale, presses against the bars.
+"Don't trust the dungeon," she hisses.
+""".strip())
 
-    if state.flag("examined_symbol"):
-        slow_print("\nShe flinches when she sees the mark still glowing faintly on your palm.")
-        slow_print('"You... you\'re one of them, aren\'t you."')
+    if game.flag("examined_symbol"):
+        print("\nShe flinches when she sees the mark still glowing faintly on your palm.")
+        print('"You... you\'re one of them, aren\'t you."')
 
-    choice = menu("What do you do?", [
-        "Rescue her — pick the lock with the old key",
-        "Leave her — something feels wrong here",
-        "Question her before deciding",
-    ])
+    choice = choose(
+        "What do you do?",
+        [
+            "Rescue her — pick the lock with the old key",
+            "Leave her — something feels wrong here",
+            "Question her before deciding",
+        ],
+    )
 
-    if choice == 0:
-        slow_print("\nThe key fits. The lock groans open.")
-        slow_print('"Thank you," she whispers. "I\'ll help you however I can."')
-        state.set_flag("rescued_girl", True)
-        state.flags["ally"] = "girl"
-        state.nudge(trust=2, courage=1)
-    elif choice == 1:
-        slow_print("\nYou step back. Her eyes widen, but she doesn't beg.")
-        slow_print('"...Smart," she mutters, almost to herself.')
-        state.set_flag("left_girl", True)
-        state.nudge(trust=-2, courage=-1)
+    if choice == 1:
+        print("\nThe key fits. The lock groans open.")
+        print('"Thank you," she whispers. "I\'ll help you however I can."')
+        game.set_flag("rescued_girl", True)
+        game.flags["ally"] = "girl"
+        increase_hope(game, 10)
+    elif choice == 2:
+        print("\nYou step back. Her eyes widen, but she doesn't beg.")
+        print('"...Smart," she mutters, almost to herself.')
+        game.set_flag("left_girl", True)
+        increase_despair(game, 10)
     else:
-        slow_print("\nYou keep your distance and ask her what she knows.")
-        _question_her(state)
+        print("\nYou keep your distance and ask her what she knows.")
+        _question_her(game)
 
     pause()
 
-    slow_print("\nDeeper in the prison block, you find a rusted lever and a second locked door.")
-    lever_choice = menu("A lever juts from the wall, half-broken. Do you pull it?", [
-        "Pull the lever",
-        "Leave it alone",
-    ])
-    if lever_choice == 0:
-        slow_print("\nGears grind somewhere below. A distant door unlocks — or does something else unlock too?")
-        state.set_flag("pulled_lever", True)
-        state.nudge(courage=1, curiosity=1)
+    print("\nDeeper in the prison block, you find a rusted lever and a second locked door.")
+    lever_choice = choose(
+        "A lever juts from the wall, half-broken. Do you pull it?",
+        ["Pull the lever", "Leave it alone"],
+    )
+    if lever_choice == 1:
+        print("\nGears grind somewhere below. A distant door unlocks — or does something else unlock too?")
+        game.set_flag("pulled_lever", True)
+        increase_hope(game, 5)
     else:
-        slow_print("\nYou leave the mechanism untouched. Some things should stay buried.")
-        state.nudge(trust=1)
+        print("\nYou leave the mechanism untouched. Some things should stay buried.")
+        increase_hope(game, 3)
 
     pause()
-    state.level = 3
-    return state
+    game.current_level = 3
+    if 2 not in game.completed_levels:
+        game.completed_levels.append(2)
+    return game
 
 
-def _question_her(state):
-    slow_print('\n"What is this place?" you ask.')
-    slow_print('She studies you for a long moment.')
-    slow_print('"It remembers everyone who\'s ever tried to leave. It remembers YOU."')
+def _question_her(game):
+    print('\n"What is this place?" you ask.')
+    print('She studies you for a long moment.')
+    print('"It remembers everyone who\'s ever tried to leave. It remembers YOU."')
 
-    follow_up = menu('"What do you mean, remembers me?"', [
-        "Press her for more",
-        "Back away — you're not ready to hear this",
-    ])
-    if follow_up == 0:
-        slow_print('\n"You\'ve been here before," she says. "More than once. It always resets."')
-        state.set_flag("questioned_girl", True)
-        state.nudge(curiosity=2, trust=1)
+    follow_up = choose(
+        '"What do you mean, remembers me?"',
+        ["Press her for more", "Back away — you're not ready to hear this"],
+    )
+    if follow_up == 1:
+        print('\n"You\'ve been here before," she says. "More than once. It always resets."')
+        game.set_flag("questioned_girl", True)
+        increase_hope(game, 5)
     else:
-        slow_print("\nYou turn away before she can say more. The words follow you anyway.")
-        state.set_flag("questioned_girl", True)
-        state.nudge(curiosity=1, courage=-1)
+        print("\nYou turn away before she can say more. The words follow you anyway.")
+        game.set_flag("questioned_girl", True)
+        increase_despair(game, 3)
