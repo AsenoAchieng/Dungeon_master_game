@@ -1,23 +1,30 @@
 {
-    "current_level": 3,
-    "heart_gem": 60,
+    "current_level": 5,
+    "heart_gem": 80,
     "inventory": [
         "Old Key",
         "Torn Letter",
         "Carved Symbol"
     ],
     "choices": {
-        "accepted_wish": true
+        "accepted_wish": true,
+        "broke_crystal": true,
+        "escaped_dungeon": true
     },
     "flags": {
         "envoy_trusted": true,
         "rescued_girl": true,
         "ally": "girl",
-        "pulled_lever": true
+        "pulled_lever": true,
+        "found_own_book": true,
+        "accepted_truth": true
     },
     "completed_levels": [
         1,
-        2
+        2,
+        3,
+        4,
+        5
     ],
     "discovered_endings": []
 }

@@ -21,7 +21,8 @@ A voice whispers:
     save_choice(game, choice)
     show_ending(game, choice)
 
-    game.completed_levels.append(5)
+    if 5 not in game.completed_levels:
+        game.completed_levels.append(5)
 
 
 def reveal_truth(game):
