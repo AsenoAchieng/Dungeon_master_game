@@ -29,6 +29,7 @@ def main_menu():
             clear()
             game = GameState()
             play_game(game)
+            
         elif choice == 2:
             game = load_game()
             if game is None:
