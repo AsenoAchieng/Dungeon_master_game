@@ -8,9 +8,7 @@ def save_game(game):
     print("\nGame saved successfully.")
 
 
-def load_game():
-    return __import__("game.game_state", fromlist=["GameState"]).GameState.load(SAVE_FILE)
-
+def load_game():return __import__("dungeon_master.game.game_state", fromlist=["GameState"]).GameState.load(SAVE_FILE)
 
 def save_exists():
     return Path(SAVE_FILE).exists()

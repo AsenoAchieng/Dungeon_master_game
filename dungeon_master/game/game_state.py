@@ -53,3 +53,8 @@ class GameState:
         game.completed_levels = data.get("completed_levels", [])
         game.discovered_endings = data.get("discovered_endings", [])
         return game
+    def flag(self, name, default=False):
+        return self.flags.get(name, default)
+
+    def set_flag(self, name, value=True):
+        self.flags[name] = value
