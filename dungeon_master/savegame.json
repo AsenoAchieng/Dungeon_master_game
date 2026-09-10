@@ -1,0 +1,19 @@
+{
+    "current_level": 2,
+    "heart_gem": 45,
+    "inventory": [
+        "Old Key",
+        "Torn Letter",
+        "Carved Symbol"
+    ],
+    "choices": {
+        "accepted_wish": true
+    },
+    "flags": {
+        "envoy_trusted": true
+    },
+    "completed_levels": [
+        1
+    ],
+    "discovered_endings": []
+}
