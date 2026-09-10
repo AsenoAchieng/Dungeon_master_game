@@ -1,5 +1,5 @@
-from game.heart_gem import increase_hope, increase_despair
-from game.ui import choose, pause, title
+from dungeon_master.game.heart_gem import increase_hope, increase_despair
+from dungeon_master.game.ui import choose, pause, title
 
 
 def level2(game):
